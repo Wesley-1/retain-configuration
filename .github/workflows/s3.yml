@@ -1,0 +1,46 @@
+name: Upload Configs to S3
+
+on:
+  push:
+    branches: [ main ]
+
+jobs:
+  upload-configs:
+    runs-on: ubuntu-latest
+    environment: S3
+
+    env:
+      AWS_ACCESS_KEY_ID: ${{ secrets.AWS_ACCESS_KEY_ID }}
+      AWS_SECRET_ACCESS_KEY: ${{ secrets.AWS_SECRET_ACCESS_KEY }}
+      AWS_BUCKET: ${{ secrets.AWS_BUCKET }}
+      AWS_REGION: ${{ secrets.AWS_REGION }}
+
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v3
+
+      - name: Configure AWS credentials
+        uses: aws-actions/configure-aws-credentials@v4
+        with:
+          aws-access-key-id: ${{ secrets.AWS_ACCESS_KEY_ID }}
+          aws-secret-access-key: ${{ secrets.AWS_SECRET_ACCESS_KEY }}
+          aws-region: ${{ secrets.AWS_REGION }}
+
+      - name: Upload config files individually
+        run: |
+          for file in configs/*; do
+            # Get the filename without path
+            filename=$(basename "$file")
+          
+            # Get the filename without extension (this becomes the S3 key)
+            key="${filename%.*}"
+          
+            echo "📤 Uploading $filename as key: $key"
+          
+            # Upload to S3 with the key as the object name
+            aws s3 cp "$file" "s3://$AWS_BUCKET/$key" \
+              --region $AWS_REGION
+          
+            echo "✅ Successfully uploaded $filename"
+            echo ""
+          done
