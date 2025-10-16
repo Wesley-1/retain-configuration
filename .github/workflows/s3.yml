@@ -28,19 +28,16 @@ jobs:
 
       - name: Upload config files individually
         run: |
-          for file in configs/*; do
-            # Get the filename without path
-            filename=$(basename "$file")
-          
-            # Get the filename without extension (this becomes the S3 key)
-            key="${filename%.*}"
-          
-            echo "📤 Uploading $filename as key: $key"
-          
-            # Upload to S3 with the key as the object name
+          find configs -type f | while read -r file; do
+            # Get relative path from configs/ and remove extension
+            relative_path="${file#configs/}"
+            key="${relative_path%.*}"
+            
+            echo "📤 Uploading $file as key: $key"
+            
             aws s3 cp "$file" "s3://$AWS_BUCKET/$key" \
               --region $AWS_REGION
-          
-            echo "✅ Successfully uploaded $filename"
+              
+            echo "✅ Successfully uploaded $file"
             echo ""
           done
