@@ -29,7 +29,6 @@ jobs:
       - name: Upload config files individually
         run: |
           find configs -type f | while read -r file; do
-            # Get relative path from configs/ and remove extension
             relative_path="${file#configs/}"
             key="${relative_path%.*}"
             
