@@ -1,0 +1,6 @@
+retain {
+	name = "Hello"	other = new Schema.Test {
+		name = "Hello"		setted = new Listing<String> {
+		"ABC"		}
+		testingNewFieldReconcile = "Hello"	}
+	testingNewFieldReconcile = "oops"}
