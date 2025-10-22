@@ -1,6 +1,26 @@
 retain {
-	name = "Hello"	other = new Schema.Test {
-		name = "Hello"		setted = new Listing<String> {
-		"ABC"		}
-		testingNewFieldReconcile = "Hello"	}
-	testingNewFieldReconcile = "oops"}
+	mapper = new Mapping<Int, String> {
+		[1] = "a"
+		[2] = "b"
+		[3] = "c"
+	}
+	name = "Hello"
+	other = new Schema.Test {
+		name = "Hello"
+		setted = new Listing<Schema.Cool> {
+			new Schema.Cool {
+				list = new Listing<String> {
+					"Hello"
+					"Hello1"
+				}
+			}
+		}
+		testingNewFieldReconcile = "Hello"
+	}
+	set = new Listing<String> {
+		"Abc"
+		"D"
+		"O"
+	}.toSet()
+	testingNewFieldReconcile = "oops"
+}
