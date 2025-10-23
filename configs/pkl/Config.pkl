@@ -1,14 +1,29 @@
 retain {
-	mapper = new Mapping<Int, String> {
-			[1] = 		"a"
-			[2] = 		"b"
-			[3] = 		"c"
+	mapper = new Mapping<Int, Schema.Cool> {
+			[1] = new Schema.Cool {
+				list = new Listing<String> {
+					"aa"
+					"bb"
+				}
+			}
+			[2] = new Schema.Cool {
+				list = new Listing<String> {
+					"aaa"
+					"bbb"
+				}
+			}
+			[3] = new Schema.Cool {
+				list = new Listing<String> {
+					"aaaa"
+					"bbbb"
+				}
+			}
 	}
 	name = "Hello"
-	other = new Schema.Schema.Test {
+	other = new Schema.Test {
 		name = "TestingAgain()"
 		setted = new Listing<Schema.Cool> {
-			new Schema.Schema.Cool {
+			new Schema.Cool {
 				list = new Listing<String> {
 					"Hello"
 					"Hello1"
