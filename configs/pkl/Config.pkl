@@ -1,21 +1,21 @@
 retain {
 	mapper = new Mapping<Int, String> {
-		[1] = "a"
-		[2] = "b"
-		[3] = "c"
+			[1] = 		"a"
+			[2] = 		"b"
+			[3] = 		"c"
 	}
 	name = "Hello"
-	other = new Schema.Test {
-		name = "Hello"
+	other = new Schema.Schema.Test {
+		name = "TestingAgain()"
 		setted = new Listing<Schema.Cool> {
-			new Schema.Cool {
+			new Schema.Schema.Cool {
 				list = new Listing<String> {
 					"Hello"
 					"Hello1"
 				}
 			}
 		}
-		testingNewFieldReconcile = "Hello"
+		testingNewFieldReconcile = "oops"
 	}
 	set = new Listing<String> {
 		"Abc"
