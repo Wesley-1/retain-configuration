@@ -1,0 +1,7 @@
+module pkl.schemas.tench.wesley.retain.app.config.BikeConfiguration
+
+import "Bike/BikeSchema.pkl"
+
+class BikeConfiguration {
+	bikes: Map<String, BikeSchema.Bike>
+}
