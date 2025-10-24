@@ -1,41 +1,9 @@
 retain {
-	mapper = new Mapping<Int, Schema.Cool> {
-		[1] = new Schema.Cool {
-			list = new Listing<String> {
-				"aa"
-				"bb"
+	bikes = new Mapping<String, Schema.Bike> {
+		["bike"] = new Schema.Bike {
+			description = new Listing<String> {
 			}
-		}
-		[2] = new Schema.Cool {
-			list = new Listing<String> {
-				"aaa"
-				"bbb"
-			}
-		}
-		[3] = new Schema.Cool {
-			list = new Listing<String> {
-				"aaaa"
-				"bbbb"
-			}
+			name = ""
 		}
 	}
-	name = "Hello"
-	other = new Schema.Test {
-		name = "TestingAgain()"
-		setted = new Listing<Schema.Cool> {
-			new Schema.Cool {
-				list = new Listing<String> {
-					"Hello"
-					"Hello1"
-				}
-			}
-		}
-		testingNewFieldReconcile = "oops"
-	}
-	set = new Listing<String> {
-		"Abc"
-		"D"
-		"O"
-	}.toSet()
-	testingNewFieldReconcile = "oops"
 }
