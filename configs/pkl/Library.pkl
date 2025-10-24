@@ -4,7 +4,20 @@ import "../schemas/Schema.pkl"
 
 library { 
 	bike { 
+		colors { 
+			types { 
+				blue = "blue"
+				green = "green"
+				maroon = "maroon"
+				orange = "orange"
+				pink = "pink"
+				yellow = "yellow"
+			}
+		}
 		types { 
+			paid { 
+				vip = "vip"
+			}
 			awesome = "awesome"
 			cheap = "cheap"
 			custom = "custom"
