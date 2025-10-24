@@ -1,9 +1,0 @@
-retain {
-	bikes = new Mapping<String, Schema.Bike> {
-		["bike"] = new Schema.Bike {
-			description = new Listing<String> {
-			}
-			name = ""
-		}
-	}
-}

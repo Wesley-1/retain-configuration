@@ -1,0 +1,12 @@
+library { 
+	bike { 
+		types { 
+			awesome = "awesome"
+			cheap = "cheap"
+			custom = "custom"
+			expensive = "expensive"
+			rusty = "rusty"
+			specialized = "specialized"
+		}
+	}
+}
