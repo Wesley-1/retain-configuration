@@ -8,17 +8,15 @@ jobs:
   build-pkl:
     runs-on: ubuntu-latest
     continue-on-error: true
-
     steps:
-      - name: Create Build Directory
-        run: mkdir -p configs/pkl/build
-      - uses: actions/checkout@v4
-      - name: Generate Json File
-        uses: emilymclean/pkl-data-action@v1 
+      - name: Install pkl
+        uses: pkl-community/setup-pkl@v0
         with:
-          pkl-file: 'configs/pkl/Config.pkl'
-          output-file: 'configs/pkl/build/retain-pkl-configuration.json'
-          pkl-version: '0.25.3' 
+          pkl-version: 0.28.2
+      - name: Ensure Directory
+        run: mkdir -p configs/pkl/build
+      - name: Generate Json
+        run: pkl eval configs/pkl/Config.pkl --format json > configs/pkl/build/retain-pkl-configuration.json
       - name: Upload generated data
         uses: actions/upload-artifact@v4
         with:
