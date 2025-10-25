@@ -1,0 +1,7 @@
+module pkl.schemas.tench.wesley.retain.app.config.JsonBikeConfiguration
+
+import "../BikeConfiguration/Bike/BikeSchema.pkl"
+
+class JsonBikeConfiguration {
+	jsonBikes: Mapping<String, BikeSchema.Bike>
+}

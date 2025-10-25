@@ -1,0 +1,7 @@
+module pkl.schemas.ConfigSchema
+
+import "../tench/wesley/retain/app/config/BikeConfiguration/BikeConfigurationSchema.pkl"
+
+class Config {
+	bike: BikeConfigurationSchema.BikeConfiguration?
+}
