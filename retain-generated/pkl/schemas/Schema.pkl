@@ -1,0 +1,7 @@
+module pkl.schemas.Schema
+
+import "tench/wesley/retain/app/config/BikeConfiguration/Bike/BikeSchema.pkl"
+import "tench/wesley/retain/app/config/BikeConfiguration/BikeConfigurationSchema.pkl"
+
+typealias Bike = BikeSchema.Bike
+typealias BikeConfiguration = BikeConfigurationSchema.BikeConfiguration
