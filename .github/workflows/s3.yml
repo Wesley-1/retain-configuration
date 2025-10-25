@@ -53,7 +53,9 @@ jobs:
         run: |
           find configs -type f -name "*.json" | while read -r file; do
             filename=$(basename "$file")  
-            aws s3 cp "$file" "s3://$AWS_BUCKET/$filename" \
+            key="${filename%.*}"
+
+            aws s3 cp "$file" "s3://$AWS_BUCKET/$key" \
               --region "$AWS_REGION"
 
             echo "Uploaded $filename"
