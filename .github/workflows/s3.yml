@@ -52,11 +52,10 @@ jobs:
       - name: Upload Config Files
         run: |
           find configs -type f -name "*.json" | while read -r file; do
-            relative_path="${file#configs/}"
-            key="${relative_path%.*}"
-            
-            aws s3 cp "$file" "s3://$AWS_BUCKET/$key" --region "$AWS_REGION"
-            
-            echo "Successfully uploaded $file"
+            filename=$(basename "$file")  
+            aws s3 cp "$file" "s3://$AWS_BUCKET/$filename" \
+              --region "$AWS_REGION"
+
+            echo "Uploaded $filename"
             echo ""
           done
