@@ -9,10 +9,12 @@ jobs:
     runs-on: ubuntu-latest
     continue-on-error: true
     steps:
-      - name: Install pkl
+      - name: Install Pkl
         uses: pkl-community/setup-pkl@v0
         with:
           pkl-version: 0.28.2
+      - name: Checkout Configurations
+        uses: actions/checkout@v4
       - name: Ensure Directory
         run: mkdir -p configs/pkl/build
       - name: Generate Json
@@ -33,7 +35,7 @@ jobs:
       AWS_REGION: ${{ secrets.AWS_REGION }}
 
     steps:
-      - name: Checkout code
+      - name: Checkout Configurations
         uses: actions/checkout@v4
       - name: Download Potential Pkl files
         uses: actions/download-artifact@v4
