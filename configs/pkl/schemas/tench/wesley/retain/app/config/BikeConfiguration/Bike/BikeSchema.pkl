@@ -2,5 +2,5 @@ module pkl.schemas.tench.wesley.retain.app.config.BikeConfiguration.Bike
 
 class Bike {
 	name: String
-	description: List<String>
+	description: Listing<String>
 }
