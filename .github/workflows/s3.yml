@@ -26,6 +26,7 @@ jobs:
           path: configs/pkl/build/retain-pkl-configuration.json
   upload-configs:
     runs-on: ubuntu-latest
+    depends-on: build-pkl
     environment: S3
     env:
       AWS_ACCESS_KEY_ID: ${{ secrets.AWS_ACCESS_KEY_ID }}
