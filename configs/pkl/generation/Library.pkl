@@ -1,6 +1,6 @@
 module pkl.generation.Library
 
-import "../schemas/Schema.pkl"
+import "../schemas/Schema/Schema.pkl"
 
 library { 
 	bike { 
