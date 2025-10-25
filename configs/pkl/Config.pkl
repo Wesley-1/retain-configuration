@@ -1,6 +1,6 @@
-import "../core/schemas/Schema/Schema.pkl"
-import "../core/schemas/ConfigSchema/ConfigSchema.pkl"
-import "../core/generation/Library.pkl"
+import "../core/pkl/schemas/Schema/Schema.pkl"
+import "../core/pkl/schemas/ConfigSchema/ConfigSchema.pkl"
+import "../core/pkl/generation/Library.pkl"
 
 config = new ConfigSchema.Config {
   bike = new Schema.BikeConfiguration {
