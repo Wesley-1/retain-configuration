@@ -50,15 +50,14 @@ jobs:
           aws-secret-access-key: ${{ secrets.AWS_SECRET_ACCESS_KEY }}
           aws-region: ${{ secrets.AWS_REGION }}
 
-      - name: Upload config files individually
+      - name: Upload Config Files
         run: |
-          find configs -type -name *.json f | while read -r file; do
+          find configs -type f -name "*.json" | while read -r file; do
             relative_path="${file#configs/}"
             key="${relative_path%.*}"
-                        
-            aws s3 cp "$file" "s3://$AWS_BUCKET/$key" \
-              --region $AWS_REGION
-              
+            
+            aws s3 cp "$file" "s3://$AWS_BUCKET/$key" --region "$AWS_REGION"
+            
             echo "Successfully uploaded $file"
             echo ""
           done
